@@ -42,10 +42,10 @@ shinyUI(pageWithSidebar(
     #actionButton(input="buscar",label="Actualizar",styleclass="primary"),
     selectInput("p_o", 
                 "Población inicial:", 
-                choices=c("43000", "30000",
-                          "25000", "20000",
-                          "15000", "10000"),
-                selected= "15000")
+                choices=c("573", "1240",
+                          "1500", "2107",
+                          "2500", "3000"),
+                selected= "3500")
     ,
     conditionalPanel(condition="input.tsp =='graf_sim' || input.tsp == 'tab_prom' || input.tsp== 'tab_dat' || input.tsp=='tab_captu' || input.tsp== 'tab_fig14' || input.tsp== 'tab_fig15'",
                      sliderInput("c_o", 
