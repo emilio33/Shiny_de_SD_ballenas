@@ -1,0 +1,9 @@
+headerPanel(
+    HTML('
+         <div id="lancis">
+         Conflicto observación de ballenas con conservación de la ballena gris
+<a href="http://lancis.ecologia.unam.mx/web/" target="_blank">
+         <img id="logo_lancisi" align="right" alt="Logo LANCIS" 
+         src="C://Users//emili//Desktop//Proyecto Shiny_Ballenas//shiny.ballenas.master//www.png" 
+         HEIGHT="70" WIDTH="200" BORDER="0"/>
+         </a>
