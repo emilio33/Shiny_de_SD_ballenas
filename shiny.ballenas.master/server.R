@@ -9,6 +9,7 @@ library("psych")
 library("deSolve")
 library("splines")
 library("MASS")
+##tuve que cambiar la librería a reshape2
 library("reshape2")
 library("gridExtra")
 library("parallel")
@@ -27,8 +28,8 @@ shinyServer(function(input, output, sessionInfo) {
   ## slider para el número de embarcaciones
   
   output$embar_range_slider <- renderUI({
-    ymin <- 40
-    ymax <- 330
+    ymin <- 22
+    ymax <- 150
     
     sliderInput(inputId = "emb_range",
                 label = "Rango de embarcaciones por temporada:",

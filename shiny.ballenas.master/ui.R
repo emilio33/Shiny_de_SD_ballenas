@@ -60,20 +60,20 @@ shinyUI(pageWithSidebar(
                      || input.tsp == 'tab_fig14' || input.tsp =='tab_fig15'",
                      sliderInput("r_pob", 
                                  "Tasa de crecimiento:", 
-                                 min = 0.005, 
-                                 max = 0.02, 
+                                 min = 0.025, 
+                                 max = 0.032, 
                                  #step = 0.001,
-                                 value =c(0.005,0.02)),
+                                 value =c(0.025,0.032)),
                      numericInput(inputId="r_mod",label="Moda de la tasa de crecimiento",
-                                  value=0.01,min=0.005,
-                                  max=0.02,step=0.008)
+                                  value=0.028,min=0.025,
+                                  max=0.032,step=0.001) ##cambié step de 0.008 a 0.001 xa poder variar la moda poco a poco 
                      ,
                      
                      uiOutput("embar_range_slider")
                      ,
                      numericInput(inputId="emb_mod",label="Moda embarcaciones:",
-                                  value=117,min=40,
-                                  max=330,step=40)
+                                  value=70,min=22,
+                                  max=150,step=02)
                      ,
                      #uiOutput("temp_range_slider")
                      #,
@@ -96,9 +96,9 @@ shinyUI(pageWithSidebar(
     conditionalPanel(condition="input.tsp == 'tab_captu'",
                      sliderInput(inputId='embar',
                                  label='Número de embarcaciones',
-                                 min = 25,
-                                 max = 140,
-                                 value= 117),
+                                 min = 22,
+                                 max = 150,
+                                 value= 22),
                      sliderInput(inputId='viajes',
                                  label="Número de viajes por embarcación",
                                  min = 15,
