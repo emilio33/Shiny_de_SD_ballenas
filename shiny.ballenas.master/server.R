@@ -9,7 +9,7 @@ library("psych")
 library("deSolve")
 library("splines")
 library("MASS")
-##tuve que cambiar la librería a reshape2
+###tuve que cambiar la librería a reshape2
 library("reshape2")
 library("gridExtra")
 library("parallel")
@@ -85,7 +85,7 @@ shinyServer(function(input, output, sessionInfo) {
                                                       emb_range = emb_range,emb_mod = emb_mod,
                                                       viaje_range = viaje_range,viajes_mod = viajes_mod,
                                                       temp_mod = NULL, temp_range = NULL),
-                       mc.cores = 1)
+                       mc.cores = 1) ##cambio a 1 para que pueda correr en windows
     
     
     datos2 <- mclapply(valores,FUN=function(x) simula(p_o = p_o,k_sim =k_sim,
@@ -187,12 +187,14 @@ shinyServer(function(input, output, sessionInfo) {
     p <- p + geom_line() #+  ylim(-150, max(media))
     p <- p + xlab("Tiempo") + ylab("Número de Individuos") 
     p <- p + theme_bw()
-    p <- p + coord_cartesian(ylim = c(0, 50000)) 
+    p <- p + coord_cartesian(ylim = c(0, 4500)) 
     p <- p + scale_x_continuous(expand = c(0, 0), breaks=seq(0,100,length=5))
     p <- p + ggtitle("Simulaciones de la dinámica \npoblacional de la tortuga amarilla")
     p <- p +  scale_colour_manual(values=sample(1:input$nsim,replace = T))
-    p <- p +  theme(panel.grid.major.x = element_line(size=0.5),
-                    panel.grid.major.y = element_line(size=0.5),
+    p <- p +  theme(panel.grid.major.x = element_blank(),
+                    panel.grid.major.y = element_line(linetype="dashed",colour="grey80"),
+                    panel.grid.minor.x = element_blank(),
+                    panel.grid.minor.y=element_blank(),
                     legend.position= "none",
                     plot.title=element_text(lineheight=.8, face="bold"),
                     #plot.title = element_text(size = rel(1.2),face="bold"),
@@ -253,7 +255,7 @@ shinyServer(function(input, output, sessionInfo) {
     p <- p + geom_ribbon(data=datos,aes(ymin=c_in,ymax=c_sup),alpha=0.5)
     p <- p + xlab("Tiempo") + ylab("Número de Individuos") 
     p <- p + theme(plot.title=element_text(lineheight=.8, face="bold")) + theme_bw()
-    p <- p + coord_cartesian(ylim = c(0, 50000)) 
+    p <- p + coord_cartesian(ylim = c(0, 4500)) 
     p <- p + scale_x_continuous(expand = c(0, 0), breaks=seq(0,100,length=5))
     p <- p + theme(panel.grid.major.x = element_line(size=0.5),
                    panel.grid.major.y = element_line(size=0.5))

@@ -87,9 +87,9 @@ shinyUI(pageWithSidebar(
                      ,
                      sliderInput(inputId = "k_sim",
                                  label = "Capacidad de carga (K):",
-                                 min = 30000,
-                                 max = 45000,
-                                 value = 43000)
+                                 min = 2500,
+                                 max = 4500,
+                                 value = 3000)
     )
     ,
     
